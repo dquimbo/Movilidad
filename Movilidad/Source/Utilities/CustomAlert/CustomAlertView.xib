@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlertView" customModule="Movilidad" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="MVk-UP-5Ka" id="zxI-S5-dxi"/>
+                <outlet property="titleLabel" destination="MvB-Qe-rQe" id="YTG-ZC-J63"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="686" height="362"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jeg-GT-7VV">
+                    <rect key="frame" x="143" y="71" width="400" height="220"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvB-Qe-rQe">
+                            <rect key="frame" x="178" y="15" width="44.5" height="27.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                            <color key="textColor" name="button_background"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vbF-aO-0wQ">
+                            <rect key="frame" x="20" y="150" width="360" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK5-OM-zih" customClass="StandarButton" customModule="Movilidad" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
+                                    <color key="backgroundColor" name="button_background"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="gZH-uV-lLx"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Aceptar">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="general.accept"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="acceptPressed:" destination="-1" eventType="touchUpInside" id="9Xx-2H-o32"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctm-N9-UBv" customClass="StandarButton" customModule="Movilidad" customModuleProvider="target">
+                                    <rect key="frame" x="185" y="0.0" width="175" height="50"/>
+                                    <color key="backgroundColor" name="dark_gray"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="2Jc-Bi-OEf"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Cancelar">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="general.cancel"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="cancelPressed:" destination="-1" eventType="touchUpInside" id="9GD-85-oc5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVk-UP-5Ka">
+                            <rect key="frame" x="20" y="57" width="360" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="label_menu_items"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="MvB-Qe-rQe" firstAttribute="centerX" secondItem="Jeg-GT-7VV" secondAttribute="centerX" id="6Bo-xT-5Cx"/>
+                        <constraint firstItem="MvB-Qe-rQe" firstAttribute="top" secondItem="Jeg-GT-7VV" secondAttribute="top" constant="15" id="7ql-c9-K9U"/>
+                        <constraint firstAttribute="bottom" secondItem="vbF-aO-0wQ" secondAttribute="bottom" constant="20" id="9EY-ih-Jew"/>
+                        <constraint firstAttribute="height" constant="220" id="Sl8-4P-7yv"/>
+                        <constraint firstAttribute="width" constant="400" id="X20-kc-0Vv"/>
+                        <constraint firstItem="vbF-aO-0wQ" firstAttribute="leading" secondItem="Jeg-GT-7VV" secondAttribute="leading" constant="20" id="byH-vN-2SU"/>
+                        <constraint firstItem="MVk-UP-5Ka" firstAttribute="top" secondItem="MvB-Qe-rQe" secondAttribute="bottom" constant="15" id="pnl-bj-GkH"/>
+                        <constraint firstAttribute="trailing" secondItem="vbF-aO-0wQ" secondAttribute="trailing" constant="20" id="qdN-Pf-4hw"/>
+                        <constraint firstItem="MVk-UP-5Ka" firstAttribute="leading" secondItem="Jeg-GT-7VV" secondAttribute="leading" constant="20" id="tsg-QC-8gM"/>
+                        <constraint firstAttribute="trailing" secondItem="MVk-UP-5Ka" secondAttribute="trailing" constant="20" id="wao-Ci-xI5"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Jeg-GT-7VV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B6j-EW-eg9"/>
+                <constraint firstItem="Jeg-GT-7VV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ybk-yc-t39"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="157.97101449275362" y="-77.008928571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="button_background">
+            <color red="1" green="0.5725490196078431" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="dark_gray">
+            <color red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="label_menu_items">
+            <color red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

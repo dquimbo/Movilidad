@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>language</key>
+	<string>es-ar</string>
+	<key>servers</key>
+	<array>
+		<string>frontendar.ternium.net</string>
+		<string>frontendbr.ternium.net</string>
+		<string>frontendmx.ternium.net</string>
+		<string>frontendar.ternium.net</string>
+		<string>frontendbrqa.ternium.net</string>
+		<string>frontendbrdes.ternium.net</string>
+		<string>frontendbr.ternium.net</string>
+		<string>frontend-nca-qadef-mx.ternium.net</string>
+		<string>terarmdwapp14.ternium.techint.net</string>
+		<string>mdwstg.mdwcloud.com</string>
+		<string>mdwdev.mdwcloud.com</string>
+		<string>middleware-desktop.hylsa.ot</string>
+	</array>
+	<key>initial_profile_guid</key>
+	<string>empty</string>
+</dict>
+</plist>

@@ -1,0 +1,121 @@
+/* 
+  Localizable.strings
+  MovilidadUK
+
+  Created by Diego Quimbo on 4/1/22.
+  
+*/
+
+// General
+"general.accept" = "Aceptar";
+"general.cancel" = "Cancelar";
+"general.delete" = "Borrar";
+"general.error.connection" = "Error de conexión";
+"general.error.title" = "Error";
+"general.execute.app" = "Ejecutando Aplicación...";
+"general.loading.app" = "Cargando Aplicación...";
+"general.error.app" = "Error al cargar la Aplicación";
+
+// Login Screen
+"login.label.username" = "Usuario";
+"login.label.password" = "Contraseña";
+"login.textField.username.placeholder" = "Usuario";
+"login.textField.password.placeholder" = "Contraseña";
+"login.button.text" = "Ingresar";
+"login.watch.detail" = "Ver Detalle Técnico";
+"login.error.unknow.credentials" = "Usuario o contraseña incorrecto";
+"login.error.no.access" = "Usuario sin perfil";
+
+// LoginSettingView
+"loginSetting.header.title" = "Movilidad for iOS";
+"loginSetting.client.version" = "Client Version:";
+"loginSetting.build" = "Build:";
+"loginSetting.server" = "Server:";
+"loginSetting.language" = "Language:";
+"loginSetting.add.new.server" = "Agregar Nuevo Server";
+"loginSetting.networking.tools" = "Herramientas de red";
+"loginSetting.close" = "Cerrar";
+"loginSetting.add.server.title" = "Servidor";
+"loginSetting.add.server.description" = "Ingrese la dirección del servidor";
+"loginSetting.remove.server.title" = "Aviso";
+"loginSetting.remove.server.description" = "¿Estás seguro de que quieres eliminar el ambiente";
+
+// Home Screen
+"home.title" = "Home";
+"home.loading.profile" = "Cargando Perfiles";
+"home.loading.menu" = "Cargando Menu";
+"home.error.licence" = "No se encontró el servidor de licencias";
+"home.error.profile" = "Error en el servicio Profiles";
+"home.error.menu" = "Error en el servicio DesktopData";
+"home.menu.general" = "General";
+"home.loading.info" = "Cargando Información adicional";
+"home.menu.favorites" = "Favoritos";
+"home.error.notifications" = "Error en el servicio de Notificaciones";
+"home.search.general" = "Búsqueda General";
+"home.app.info" = "Movilidad for iOS. Version: %@ Build: %@ Date: %@";
+
+// Error Detail Login Screen
+"loginError.share" = "Compartir";
+
+// Settings
+"settings.profile" = "Perfil";
+"settings.user" = "Usuario";
+"settings.initials" = "Sigla";
+"settings.redirect.transactions" = "Redirect de transacciones";
+"settings.language" = "Lenguaje";
+"settings.server" = "Servidor";
+"settings.client.version" = "Versión del cliente";
+"settings.build" = "Build";
+"settings.initialConfig" = "Configuración de Inicio";
+"settings.movilidad" = "Movilidad";
+"settings.initialDesktop" = "Iniciar en Desktop";
+"settings.initialProfile" = "Perfil de inicio";
+"settings.initialOperation" = "Operación de inicio";
+"settings.metroDesktop" = "Metro Desktop";
+"settings.navigator" = "Navegador";
+"settings.signout" = "Cerrar Sesión";
+"settings.signout.description" = "¿Está seguro de que desea cerrar \n la sesión?";
+"settings.none" = "Ninguno";
+
+// RecorderView
+"audio.recorder.pause" = "PAUSA";
+"audio.recorder.play" = "REPRODUCIR";
+"audio.recorder.recording" = "GRABANDO... \n TOQUE PARA DETENER";
+"audio.recorder.touch.start.record" = "TOQUE PARA COMENZAR A GRABAR";
+
+// NetworkTools
+"network.tool.title" = "Herramientas de Red";
+"network.tool.server" = "Servidor";
+"network.tool.ping" = "Ping";
+"network.tool.ip" = "My IP";
+"network.tool.output" = "Output";
+"network.tool.start.ping" = "Starting Ping to: %@";
+"network.tool.start.ping.error" = "An error occurred when trying to Ping: %@";
+"network.tool.packet.sent" = "Packet sent: %@";
+"network.tool.packet.sent.error" = "An error occurred when trying to send Packet: %@";
+"network.tool.packet.received" = "Packet received: %@\nLatency: %@ ms";
+
+// MetroStart
+"metro.start.search" = "Buscar";
+"metro.start.desktop" = "Ir al Desktop";
+
+// ApplicationWebView
+"video.download.error" = "Error de conexión al intentar descargar el archivo";
+"video.load.error" = "Error de conexión al intentar cargar el archivo";
+"register.notification.apns.error" = "El dispositivo no esta registrado a APN";
+
+// Service errors
+"service.menu.error" = "The service .../Desktop/W32LoadDesktop.axd?Id=0&Command=DesktopData&Initial_Load=False&Culture=es-AR&ClientType does not return a valid object";
+"service.profileExtraInfo.error" = "The service .../Desktop/UserSettings.axd?getuserinfo is returning a nil object";
+
+// Navigator Web
+"navigator.go" = "Ir";
+"navigator.no_valid_url" = "La URL no es válida";
+"navigator.url_status_code" = "La URL no se puede cargar status code %@";
+"navigator.general_error" = "No se puede cargar la URL: %@";
+"navigator.general_error2" = "No se puede cargar el sitio web debido al acceso restringido por VPN";
+
+// Metro Desktop
+"metro.desktop.loading.tiles" = "Cargando Tiles";
+"metro.desktop.search.workspaces" = "Workspaces";
+"metro.desktop.empty.tiles" = "No existen Tiles disponibles";

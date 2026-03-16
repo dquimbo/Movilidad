@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MetroStartView" customModule="Movilidad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="PWa-qU-4sl">
+                    <rect key="frame" x="13" y="376" width="367" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjz-Jr-ase">
+                            <rect key="frame" x="0.0" y="0.0" width="173" height="100"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Buscar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyv-oF-XVx">
+                                    <rect key="frame" x="63.666666666666671" y="41.666666666666686" width="45.666666666666671" height="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="metro.start.search"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBk-Ep-vRW">
+                                    <rect key="frame" x="0.0" y="0.0" width="173" height="100"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                    <connections>
+                                        <action selector="searchPressed:" destination="-1" eventType="touchUpInside" id="6eg-k7-NjD"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="tyv-oF-XVx" firstAttribute="centerX" secondItem="jjz-Jr-ase" secondAttribute="centerX" id="45u-Xt-tdE"/>
+                                <constraint firstItem="CBk-Ep-vRW" firstAttribute="top" secondItem="jjz-Jr-ase" secondAttribute="top" id="7Le-x5-p0S"/>
+                                <constraint firstAttribute="trailing" secondItem="CBk-Ep-vRW" secondAttribute="trailing" id="CIF-xi-Czf"/>
+                                <constraint firstItem="tyv-oF-XVx" firstAttribute="centerY" secondItem="jjz-Jr-ase" secondAttribute="centerY" id="Hj3-Lb-5yi"/>
+                                <constraint firstAttribute="bottom" secondItem="CBk-Ep-vRW" secondAttribute="bottom" id="RlG-dq-2f2"/>
+                                <constraint firstItem="CBk-Ep-vRW" firstAttribute="leading" secondItem="jjz-Jr-ase" secondAttribute="leading" id="Tt6-No-vfz"/>
+                                <constraint firstAttribute="height" constant="100" id="w0i-Zv-tWv"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpC-qR-mch">
+                            <rect key="frame" x="194" y="0.0" width="173" height="100"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ir al Desktop" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5O-mq-E0g">
+                                    <rect key="frame" x="45.666666666666657" y="41.666666666666686" width="82" height="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="metro.start.desktop"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zge-gS-rWz">
+                                    <rect key="frame" x="0.0" y="0.0" width="173" height="100"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title=" " subtitle=" "/>
+                                    <connections>
+                                        <action selector="desktopPressed:" destination="-1" eventType="touchUpInside" id="rwU-nS-WWh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Zge-gS-rWz" secondAttribute="trailing" id="4xl-sz-5c8"/>
+                                <constraint firstItem="Zge-gS-rWz" firstAttribute="top" secondItem="vpC-qR-mch" secondAttribute="top" id="Dr1-oO-y4f"/>
+                                <constraint firstAttribute="bottom" secondItem="Zge-gS-rWz" secondAttribute="bottom" id="GOx-Jm-Atz"/>
+                                <constraint firstItem="h5O-mq-E0g" firstAttribute="centerX" secondItem="vpC-qR-mch" secondAttribute="centerX" id="Ifx-wi-ZUz"/>
+                                <constraint firstItem="h5O-mq-E0g" firstAttribute="centerY" secondItem="vpC-qR-mch" secondAttribute="centerY" id="Kro-4D-b2s"/>
+                                <constraint firstAttribute="height" constant="100" id="MGw-8D-Mwa"/>
+                                <constraint firstAttribute="width" constant="173" id="aMI-ai-R4u"/>
+                                <constraint firstItem="Zge-gS-rWz" firstAttribute="leading" secondItem="vpC-qR-mch" secondAttribute="leading" id="dZo-wm-zeV"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="vpC-qR-mch" firstAttribute="width" secondItem="jjz-Jr-ase" secondAttribute="width" id="9d6-vZ-fIv"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="menu_background"/>
+            <constraints>
+                <constraint firstItem="PWa-qU-4sl" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IiI-oG-gFb"/>
+                <constraint firstItem="PWa-qU-4sl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sOL-La-wf3"/>
+            </constraints>
+            <point key="canvasLocation" x="451.14503816793894" y="-70.422535211267615"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="menu_background">
+            <color red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

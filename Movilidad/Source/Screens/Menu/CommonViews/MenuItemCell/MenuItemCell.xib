@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="X9e-EE-J8G" customClass="MenuItemCell" customModule="Movilidad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="117"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9e-EE-J8G" id="ShL-R2-UaC">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="117"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Per-Yc-xmv">
+                        <rect key="frame" x="65" y="48.5" width="34.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <color key="textColor" name="label_menu_items"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transaction_item" translatesAutoresizingMaskIntoConstraints="NO" id="vKf-af-qiD">
+                        <rect key="frame" x="15" y="43.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="EGW-E6-0ly"/>
+                            <constraint firstAttribute="height" constant="30" id="QEF-HP-8xx"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqd-Z0-cdk">
+                        <rect key="frame" x="0.0" y="116" width="414" height="1"/>
+                        <color key="backgroundColor" name="light_gray"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="qbr-mV-1g3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="vKf-af-qiD" firstAttribute="centerY" secondItem="ShL-R2-UaC" secondAttribute="centerY" id="73N-sp-Nli"/>
+                    <constraint firstAttribute="bottom" secondItem="rqd-Z0-cdk" secondAttribute="bottom" id="KHf-7i-VX0"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Per-Yc-xmv" secondAttribute="trailing" constant="5" id="OSr-cK-mwp"/>
+                    <constraint firstItem="Per-Yc-xmv" firstAttribute="leading" secondItem="vKf-af-qiD" secondAttribute="trailing" constant="20" id="Uxr-pq-i2r"/>
+                    <constraint firstItem="rqd-Z0-cdk" firstAttribute="leading" secondItem="ShL-R2-UaC" secondAttribute="leading" id="VMt-lL-XTQ"/>
+                    <constraint firstItem="vKf-af-qiD" firstAttribute="leading" secondItem="ShL-R2-UaC" secondAttribute="leading" constant="15" id="u3T-Iw-cFc"/>
+                    <constraint firstAttribute="trailing" secondItem="rqd-Z0-cdk" secondAttribute="trailing" id="ucU-CC-GFX"/>
+                    <constraint firstItem="Per-Yc-xmv" firstAttribute="centerY" secondItem="ShL-R2-UaC" secondAttribute="centerY" id="uwn-Qf-gf2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="iconImageView" destination="vKf-af-qiD" id="kPa-hW-Oas"/>
+                <outlet property="separatorView" destination="rqd-Z0-cdk" id="sL5-z2-1bN"/>
+                <outlet property="titleLabel" destination="Per-Yc-xmv" id="FFI-Zt-N7r"/>
+            </connections>
+            <point key="canvasLocation" x="234.78260869565219" y="129.57589285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="transaction_item" width="48" height="28"/>
+        <namedColor name="label_menu_items">
+            <color red="0.44313725490196076" green="0.44313725490196076" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="light_gray">
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

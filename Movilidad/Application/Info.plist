@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Para poder capturar imagenes y lector de codigo de barras</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Necesitamos acceso al microfono para poder grabar</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+    <key>UISupportedExternalAccessoryProtocols</key>
+    <array>
+        <string>com.flir.rosebud.frame</string>
+        <string>com.flir.rosebud.config</string>
+        <string>com.flir.rosebud.fileio</string>
+    </array>
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_bonjour._tcp</string>
+        <string>_lnp._tcp.</string>
+    </array>
+</dict>
+</plist>

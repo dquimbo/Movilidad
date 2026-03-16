@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BarcodeScannerView" customModule="Movilidad" customModuleProvider="target">
+            <connections>
+                <outlet property="barcodeContentView" destination="RhU-XQ-Z7J" id="UOa-Lc-vLr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhU-XQ-Z7J">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5L-ce-Fja">
+                    <rect key="frame" x="334" y="84" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Wnc-qh-hld"/>
+                        <constraint firstAttribute="height" constant="40" id="evl-hZ-QT6"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button" image="close_white"/>
+                    <connections>
+                        <action selector="pressedClose:" destination="-1" eventType="touchUpInside" id="cdh-dT-cNl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="light_gray"/>
+            <constraints>
+                <constraint firstItem="q5L-ce-Fja" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="6Yk-ir-8My"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q5L-ce-Fja" secondAttribute="trailing" constant="40" id="fQy-ay-oNT"/>
+                <constraint firstAttribute="bottom" secondItem="RhU-XQ-Z7J" secondAttribute="bottom" id="fgV-j3-43m"/>
+                <constraint firstAttribute="trailing" secondItem="RhU-XQ-Z7J" secondAttribute="trailing" id="sXt-cc-NbO"/>
+                <constraint firstItem="RhU-XQ-Z7J" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xVz-gC-uFm"/>
+                <constraint firstItem="RhU-XQ-Z7J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zak-NK-GFJ"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="140"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close_white" width="96" height="96"/>
+        <namedColor name="light_gray">
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
