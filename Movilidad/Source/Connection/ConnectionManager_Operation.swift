@@ -10,18 +10,17 @@ import RxSwift
 import XMLMapper
 
 class ConnectionManager_Operation: ConnectionManager {
-    
+
     func operation(guid: String) -> Single<String> {
         return Single.create { [weak self] single in
 //            let pageForm = XMLMapper<OperationForm>().map(XMLfile: "basic_test.xml")
 //            single(.success(""))
 //            return Disposables.create { }
-            
+
             let request = self?.session.request(URLs.Operation.operation(guid: guid), method: .get, parameters: nil, encoding: URLEncoding.queryString, headers: ConnectionManager.headers)
                 .responseString(completionHandler: { response in
                     switch response.result {
                     case .success(let data):
-                        print("🔵 [OPERATION] Response:\n\(data)")
                         single(.success(data))
                     case .failure(_):
                         single(.failure(ApiError.internalServerError))
@@ -36,7 +35,7 @@ class ConnectionManager_Operation: ConnectionManager {
 
     func operationTrigger(guid: String, form: OperationForm, triggerId: String) -> Single<String> {
         return Single.create { [weak self] single in
-                        
+
             let parameters = [
                 "__EVENTARGUMENT": "TargetEntityTrigger",
                 "__EVENTTARGET": triggerId,
@@ -48,12 +47,11 @@ class ConnectionManager_Operation: ConnectionManager {
                 "__tmp_context__chunkCount": 1,
                 "__VIE WSTATE": ""
             ] as [String : Any]
-            
+
             let request = self?.session.request(URLs.Operation.operation(guid: guid), method: .post, parameters: parameters, encoding: URLEncoding.default, headers: ConnectionManager.headers)
                 .responseString(completionHandler: { response in
                     switch response.result {
                     case .success(let data):
-                        print("🔵 [OPERATION TRIGGER] Response:\n\(data)")
                         single(.success(data))
                     case .failure(_):
                         single(.failure(ApiError.internalServerError))
@@ -72,9 +70,8 @@ class ConnectionManager_Operation: ConnectionManager {
                 .responseString(completionHandler: { response in
                     switch response.result {
                     case .success(let data):
-                        print("🔵 [GET TILES] Response:\n\(data)")
                         let tilesControl =  TileControls(XMLString: data)
-                        
+
                         single(.success(tilesControl))
                     case .failure(_):
                         single(.failure(ApiError.internalServerError))

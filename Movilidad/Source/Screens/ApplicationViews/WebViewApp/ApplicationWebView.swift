@@ -23,7 +23,7 @@ class ApplicationWebView: NibLoadingView {
     @IBOutlet weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
-            webView.customUserAgent = registerUserAgent()
+//            webView.customUserAgent = registerUserAgent()
         }
     }
     
@@ -74,18 +74,20 @@ class ApplicationWebView: NibLoadingView {
     private func setupView() {
         // Load storage cookies in WKWebView
         loadPreviousCookies()
-        
+
         configureCredentials(host: vM.url.host)
-        
+
         showProgressHud(view: self, text: L10n.General.Loading.app)
-        
+
         let request = URLRequest(url: vM.url)
         webView.load(request)
-        
+
         // This tap gesture is used in order to hide the slide menu when the user tap outside of it
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(webViewTapRecognizer))
         tapGesture.delegate = self
         webView.addGestureRecognizer(tapGesture)
+
+        setupFloatingButton()
     }
     
     private func registerUserAgent() -> String {
@@ -501,7 +503,146 @@ extension ApplicationWebView:  UIGestureRecognizerDelegate {
 extension ApplicationWebView: RecorderViewDelegate {
     func uploadAudioFile(audioPath: URL) {
         guard let newScript = vM.processRecordAudio(audioPath: audioPath) else { return }
-        
+
         webView.evaluateJavaScript(newScript)
+    }
+}
+
+// MARK: - Floating Button & Popup WebView
+private extension ApplicationWebView {
+    func setupFloatingButton() {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "globe"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = Asset.buttonBackground.color
+        button.layer.cornerRadius = 28
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.3
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowRadius = 4
+        button.addTarget(self, action: #selector(floatingButtonPressed), for: .touchUpInside)
+
+        addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 56),
+            button.heightAnchor.constraint(equalToConstant: 56),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40)
+        ])
+    }
+
+    @objc func floatingButtonPressed() {
+        guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
+            return
+        }
+
+        let popupView = WebPopupView(url: URL(string: "https://www.ternium-non-prod-8il0jhic.us21.sapdas.cloud.sap/webclient/standalone/sap_digital_assistant")!)
+        window.addSubview(popupView)
+
+        NSLayoutConstraint.activate([
+            popupView.topAnchor.constraint(equalTo: window.topAnchor),
+            popupView.bottomAnchor.constraint(equalTo: window.bottomAnchor),
+            popupView.leadingAnchor.constraint(equalTo: window.leadingAnchor),
+            popupView.trailingAnchor.constraint(equalTo: window.trailingAnchor)
+        ])
+    }
+}
+
+// MARK: - WebPopupView
+class WebPopupView: UIView, WKNavigationDelegate {
+
+    private let popupWebView: WKWebView
+    private var container: UIView!
+    private var loadCount: Int = 0
+
+    required init(url: URL) {
+        popupWebView = WKWebView(frame: .zero)
+        super.init(frame: .zero)
+
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = UIColor.black.withAlphaComponent(0.5)
+
+        setupUI()
+
+        popupWebView.navigationDelegate = self
+        showProgressHud(view: container, text: L10n.General.Loading.app)
+        popupWebView.load(URLRequest(url: url))
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupUI() {
+        // Container with rounded corners
+        container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = .white
+        container.layer.cornerRadius = 12
+        container.clipsToBounds = true
+        addSubview(container)
+
+        // Close button
+        let closeButton = UIButton(type: .system)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        closeButton.tintColor = .darkGray
+        closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
+        container.addSubview(closeButton)
+
+        // WebView
+        popupWebView.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(popupWebView)
+
+        NSLayoutConstraint.activate([
+            container.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
+            container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+
+            closeButton.topAnchor.constraint(equalTo: container.topAnchor, constant: 8),
+            closeButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -8),
+            closeButton.widthAnchor.constraint(equalToConstant: 32),
+            closeButton.heightAnchor.constraint(equalToConstant: 32),
+
+            popupWebView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 4),
+            popupWebView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            popupWebView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            popupWebView.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+        ])
+    }
+
+    @objc private func closeTapped() {
+        removeFromSuperview()
+    }
+
+    // MARK: - WKNavigationDelegate
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        loadCount += 1
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loadCount -= 1
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            guard let self = self else { return }
+            if self.loadCount == 0 {
+                self.hideProgressHud(view: self.container)
+            }
+        }
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        loadCount -= 1
+        hideProgressHud(view: container)
+        showAlert(title: L10n.General.Error.title, message: error.localizedDescription)
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        loadCount -= 1
+        hideProgressHud(view: container)
+        showAlert(title: L10n.General.Error.title, message: error.localizedDescription)
     }
 }
