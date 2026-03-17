@@ -21,6 +21,7 @@ class ConnectionManager_Operation: ConnectionManager {
                 .responseString(completionHandler: { response in
                     switch response.result {
                     case .success(let data):
+                        print("🔵 [OPERATION] Response:\n\(data)")
                         single(.success(data))
                     case .failure(_):
                         single(.failure(ApiError.internalServerError))
@@ -32,7 +33,7 @@ class ConnectionManager_Operation: ConnectionManager {
             }
         }
     }
-    
+
     func operationTrigger(guid: String, form: OperationForm, triggerId: String) -> Single<String> {
         return Single.create { [weak self] single in
                         
@@ -52,6 +53,7 @@ class ConnectionManager_Operation: ConnectionManager {
                 .responseString(completionHandler: { response in
                     switch response.result {
                     case .success(let data):
+                        print("🔵 [OPERATION TRIGGER] Response:\n\(data)")
                         single(.success(data))
                     case .failure(_):
                         single(.failure(ApiError.internalServerError))
@@ -63,13 +65,14 @@ class ConnectionManager_Operation: ConnectionManager {
             }
         }
     }
-    
+
     func getTiles(guid: String) -> Single<TileControls?> {
         return Single.create { [weak self] single in
             let request = self?.session.request(URLs.Operation.getTiles(guid: guid), method: .get, parameters: nil, encoding: URLEncoding.queryString, headers: ConnectionManager.headers)
                 .responseString(completionHandler: { response in
                     switch response.result {
                     case .success(let data):
+                        print("🔵 [GET TILES] Response:\n\(data)")
                         let tilesControl =  TileControls(XMLString: data)
                         
                         single(.success(tilesControl))

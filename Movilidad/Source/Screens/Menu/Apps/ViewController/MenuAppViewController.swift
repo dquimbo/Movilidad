@@ -58,6 +58,6 @@ class MenuAppViewController: UIViewController, NibLoadable {
     func reloadData() {
         vM.builMenuApps()
         
-        appsTableView.reloadData()
+        appsTableView?.reloadData()
     }
 }
