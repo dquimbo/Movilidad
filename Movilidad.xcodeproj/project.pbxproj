@@ -172,6 +172,10 @@
 		80C1A42D27A16C4800869922 /* ConnectionManager_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A42C27A16C4800869922 /* ConnectionManager_Profile.swift */; };
 		80C1A42F27A17C9B00869922 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A42E27A17C9B00869922 /* Profile.swift */; };
 		80C1A43127A17FBB00869922 /* basic_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80C1A43027A17FBB00869922 /* basic_test.xml */; };
+		D1M0CK0127A17FBB00869922 /* mock_login.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0027A17FBB00869922 /* mock_login.xml */; };
+		D1M0CK0327A17FBB00869922 /* mock_profile.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0227A17FBB00869922 /* mock_profile.xml */; };
+		D1M0CK0527A17FBB00869922 /* mock_menu.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0427A17FBB00869922 /* mock_menu.xml */; };
+		D1M0CK0727A17FBB00869922 /* mock_additional_profile_info.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */; };
 		80C1A43527A1946B00869922 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A43427A1946B00869922 /* SessionManager.swift */; };
 		80C1A43727A3FD4D00869922 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A43627A3FD4D00869922 /* Menu.swift */; };
 		80C1A43B27A423C200869922 /* MenuSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A43A27A423C200869922 /* MenuSlideView.swift */; };
@@ -433,6 +437,10 @@
 		80C1A42C27A16C4800869922 /* ConnectionManager_Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager_Profile.swift; sourceTree = "<group>"; };
 		80C1A42E27A17C9B00869922 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		80C1A43027A17FBB00869922 /* basic_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = basic_test.xml; sourceTree = "<group>"; };
+		D1M0CK0027A17FBB00869922 /* mock_login.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_login.xml; sourceTree = "<group>"; };
+		D1M0CK0227A17FBB00869922 /* mock_profile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_profile.xml; sourceTree = "<group>"; };
+		D1M0CK0427A17FBB00869922 /* mock_menu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_menu.xml; sourceTree = "<group>"; };
+		D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_additional_profile_info.xml; sourceTree = "<group>"; };
 		80C1A43427A1946B00869922 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		80C1A43627A3FD4D00869922 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		80C1A43A27A423C200869922 /* MenuSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSlideView.swift; sourceTree = "<group>"; };
@@ -686,6 +694,10 @@
 			isa = PBXGroup;
 			children = (
 				80C1A43027A17FBB00869922 /* basic_test.xml */,
+				D1M0CK0027A17FBB00869922 /* mock_login.xml */,
+				D1M0CK0227A17FBB00869922 /* mock_profile.xml */,
+				D1M0CK0427A17FBB00869922 /* mock_menu.xml */,
+				D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */,
 				80B95DEF2A0AA5920022E3AD /* Movilidad-Bridging-Header.h */,
 				800663B7278DAFE6007A6A3F /* Resources */,
 				8006638F278DAC3E007A6A3F /* Info.plist */,
@@ -1886,6 +1898,10 @@
 				80F448AA2A03D2A500959AD8 /* NetworkToolViewController.xib in Resources */,
 				80A92BB327AC0FC9004B9C1B /* MenuWorkflowViewController.xib in Resources */,
 				80C1A43127A17FBB00869922 /* basic_test.xml in Resources */,
+				D1M0CK0127A17FBB00869922 /* mock_login.xml in Resources */,
+				D1M0CK0327A17FBB00869922 /* mock_profile.xml in Resources */,
+				D1M0CK0527A17FBB00869922 /* mock_menu.xml in Resources */,
+				D1M0CK0727A17FBB00869922 /* mock_additional_profile_info.xml in Resources */,
 				808A213D27AAD8CC00782F3F /* MenuHeaderCell.xib in Resources */,
 				80C1A47D27A95AA900869922 /* MenuTransactionViewController.xib in Resources */,
 				800FB71B27E49F2F00C89253 /* DesktopContentAppView.xib in Resources */,

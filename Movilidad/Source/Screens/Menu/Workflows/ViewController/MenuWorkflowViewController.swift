@@ -58,6 +58,6 @@ class MenuWorkflowViewController: UIViewController, NibLoadable {
     func reloadData() {
         vM.builMenuWorkflows()
         
-        workflowsTableView.reloadData()
+        workflowsTableView?.reloadData()
     }
 }

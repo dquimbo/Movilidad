@@ -56,7 +56,7 @@ class MenuTransactionViewController: UIViewController, NibLoadable {
     
     func reloadData() {
         vM.builMenuTransactions()
-        
-        transactionsTableView.reloadData()
+
+        transactionsTableView?.reloadData()
     }
 }
