@@ -50,6 +50,8 @@ class ApplicationWebView: NibLoadingView {
         self.tag = 1
         
         setupView()
+        
+        print("Profile name: \(SessionManager.shared.profile?.profileSelectedGuid)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,7 +89,9 @@ class ApplicationWebView: NibLoadingView {
         tapGesture.delegate = self
         webView.addGestureRecognizer(tapGesture)
 
-        setupFloatingButton()
+        if SessionManager.shared.profile?.profileSelectedGuid == "3D34EDB4-3EC2-473E-8B68-8795D55272BE" {
+            setupFloatingButton()
+        }
     }
     
     private func registerUserAgent() -> String {
