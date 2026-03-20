@@ -172,10 +172,6 @@
 		80C1A42D27A16C4800869922 /* ConnectionManager_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A42C27A16C4800869922 /* ConnectionManager_Profile.swift */; };
 		80C1A42F27A17C9B00869922 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A42E27A17C9B00869922 /* Profile.swift */; };
 		80C1A43127A17FBB00869922 /* basic_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80C1A43027A17FBB00869922 /* basic_test.xml */; };
-		D1M0CK0127A17FBB00869922 /* mock_login.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0027A17FBB00869922 /* mock_login.xml */; };
-		D1M0CK0327A17FBB00869922 /* mock_profile.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0227A17FBB00869922 /* mock_profile.xml */; };
-		D1M0CK0527A17FBB00869922 /* mock_menu.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0427A17FBB00869922 /* mock_menu.xml */; };
-		D1M0CK0727A17FBB00869922 /* mock_additional_profile_info.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */; };
 		80C1A43527A1946B00869922 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A43427A1946B00869922 /* SessionManager.swift */; };
 		80C1A43727A3FD4D00869922 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A43627A3FD4D00869922 /* Menu.swift */; };
 		80C1A43B27A423C200869922 /* MenuSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C1A43A27A423C200869922 /* MenuSlideView.swift */; };
@@ -256,6 +252,10 @@
 		80F6EBFC27F3361E00D69A3C /* ControlDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80F6EBFB27F3361E00D69A3C /* ControlDateView.xib */; };
 		80F6EBFE27F4A1B700D69A3C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F6EBFD27F4A1B700D69A3C /* String+Extension.swift */; };
 		80F8AAC92CEB8F1D00D6F07F /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8074E0E42A5D935B005B7204 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D1M0CK0127A17FBB00869922 /* mock_login.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0027A17FBB00869922 /* mock_login.xml */; };
+		D1M0CK0327A17FBB00869922 /* mock_profile.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0227A17FBB00869922 /* mock_profile.xml */; };
+		D1M0CK0527A17FBB00869922 /* mock_menu.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0427A17FBB00869922 /* mock_menu.xml */; };
+		D1M0CK0727A17FBB00869922 /* mock_additional_profile_info.xml in Resources */ = {isa = PBXBuildFile; fileRef = D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -437,10 +437,6 @@
 		80C1A42C27A16C4800869922 /* ConnectionManager_Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager_Profile.swift; sourceTree = "<group>"; };
 		80C1A42E27A17C9B00869922 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		80C1A43027A17FBB00869922 /* basic_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = basic_test.xml; sourceTree = "<group>"; };
-		D1M0CK0027A17FBB00869922 /* mock_login.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_login.xml; sourceTree = "<group>"; };
-		D1M0CK0227A17FBB00869922 /* mock_profile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_profile.xml; sourceTree = "<group>"; };
-		D1M0CK0427A17FBB00869922 /* mock_menu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_menu.xml; sourceTree = "<group>"; };
-		D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_additional_profile_info.xml; sourceTree = "<group>"; };
 		80C1A43427A1946B00869922 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		80C1A43627A3FD4D00869922 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		80C1A43A27A423C200869922 /* MenuSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSlideView.swift; sourceTree = "<group>"; };
@@ -520,6 +516,10 @@
 		80F6EBF927F3361400D69A3C /* ControlDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlDateView.swift; sourceTree = "<group>"; };
 		80F6EBFB27F3361E00D69A3C /* ControlDateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControlDateView.xib; sourceTree = "<group>"; };
 		80F6EBFD27F4A1B700D69A3C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D1M0CK0027A17FBB00869922 /* mock_login.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_login.xml; sourceTree = "<group>"; };
+		D1M0CK0227A17FBB00869922 /* mock_profile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_profile.xml; sourceTree = "<group>"; };
+		D1M0CK0427A17FBB00869922 /* mock_menu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_menu.xml; sourceTree = "<group>"; };
+		D1M0CK0627A17FBB00869922 /* mock_additional_profile_info.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mock_additional_profile_info.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2289,7 +2289,7 @@
 				CODE_SIGN_ENTITLEMENTS = Movilidad/Movilidad.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69EV798DA9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2307,7 +2307,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ternium.producto.iPadMiddlewareClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2329,7 +2329,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 69EV798DA9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2348,7 +2348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ternium.producto.iPadMiddlewareClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
