@@ -23,7 +23,7 @@ class ApplicationWebView: NibLoadingView {
     @IBOutlet weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
-//            webView.customUserAgent = registerUserAgent()
+            webView.customUserAgent = registerUserAgent()
         }
     }
     
@@ -51,7 +51,6 @@ class ApplicationWebView: NibLoadingView {
         
         setupView()
         
-        print("Profile name: \(SessionManager.shared.profile?.profileSelectedGuid)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,7 +88,7 @@ class ApplicationWebView: NibLoadingView {
         tapGesture.delegate = self
         webView.addGestureRecognizer(tapGesture)
 
-        if SessionManager.shared.profile?.profileSelectedGuid == "3D34EDB4-3EC2-473E-8B68-8795D55272BE" {
+        if SessionManager.shared.profile?.profileSelectedGuid == "3D34EDB4-3EC2-473E-8B68-8795D55272BE" || SessionManager.shared.profile?.profileSelectedGuid == "A6994891-2CB9-438C-9D73-CF5AD993CD51" {
             setupFloatingButton()
         }
     }
