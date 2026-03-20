@@ -538,7 +538,7 @@ private extension ApplicationWebView {
             return
         }
 
-        let popupView = WebPopupView(url: URL(string: "https://www.ternium-non-prod-8il0jhic.us21.sapdas.cloud.sap/webclient/standalone/sap_digital_assistant")!)
+        let popupView = WebPopupView(url: URL(string: "https://ternium-non-prod-8il0jhic.us21.sapdas.cloud.sap/webclient/standalone/sap_digital_assistant")!)
         window.addSubview(popupView)
 
         NSLayoutConstraint.activate([
@@ -565,6 +565,7 @@ class WebPopupView: UIView, WKNavigationDelegate {
         backgroundColor = UIColor.black.withAlphaComponent(0.5)
 
         setupUI()
+        loadPreviousCookies()
 
         popupWebView.navigationDelegate = self
         showProgressHud(view: container, text: L10n.General.Loading.app)
@@ -618,6 +619,13 @@ class WebPopupView: UIView, WKNavigationDelegate {
         removeFromSuperview()
     }
 
+    private func loadPreviousCookies() {
+        let cookies = HTTPCookieStorage.shared.cookies ?? []
+        for cookie in cookies {
+            popupWebView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+        }
+    }
+
     // MARK: - WKNavigationDelegate
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         loadCount += 1
@@ -643,6 +651,29 @@ class WebPopupView: UIView, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         loadCount -= 1
         hideProgressHud(view: container)
-        showAlert(title: L10n.General.Error.title, message: error.localizedDescription)
+        showAlert(title: L10n.General.Error.title, message: L10n.Navigator.generalError2)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse,
+                 decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+
+        if let response = navigationResponse.response as? HTTPURLResponse {
+            if response.statusCode != 200 {
+                showAlert(title: L10n.General.Error.title, message: L10n.Navigator.urlStatusCode("\(response.statusCode)"))
+            }
+        }
+        
+        decisionHandler(.allow)
+    }
+
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        guard let serverTrust = challenge.protectionSpace.serverTrust else {
+            completionHandler(.cancelAuthenticationChallenge, nil)
+            return
+        }
+
+        let exceptions = SecTrustCopyExceptions(serverTrust)
+        SecTrustSetExceptions(serverTrust, exceptions)
+        completionHandler(.useCredential, URLCredential(trust: serverTrust))
     }
 }
