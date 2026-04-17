@@ -19,6 +19,8 @@ class MenuSettingsViewController: UIViewController, NibLoadable {
     @IBOutlet weak var buildLabel: UILabel!
     @IBOutlet weak var initialProfileLabel: UILabel!
     @IBOutlet weak var initialOperationLabel: UILabel!
+    @IBOutlet weak var initInMetroDesktopButton: UIButton!
+    @IBOutlet weak var metroDesktopLabel: UILabel!
     @IBOutlet weak var transactionsRedirectView: UIView!
     @IBOutlet weak var transactionRedirectLabel: UILabel!
     
@@ -106,9 +108,13 @@ private extension MenuSettingsViewController {
         buildLabel.text = vM.build
         initialProfileLabel.text = vM.initialProfile
         initialOperationLabel.text = vM.initialOperation
+        metroDesktopLabel.text = ""
         
         transactionsRedirectView.isHidden = !vM.showTransactionRedirect
         transactionRedirectLabel.text = vM.transactionRedirectSelected
+        
+        let initMetroDesktopImage = vM.initInMetroDesktop ? Asset.checkedCheckbox.image : Asset.uncheckedCheckbox.image
+        initInMetroDesktopButton.setImage(initMetroDesktopImage, for: .normal)
     }
     
     func signOut() {

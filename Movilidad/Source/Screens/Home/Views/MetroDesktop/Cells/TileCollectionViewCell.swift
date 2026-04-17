@@ -9,18 +9,20 @@ import UIKit
 import WebKit
 
 class TileCollectionViewCell: UICollectionViewCell, Reusable {
-    
+
     // IBOutlets
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
-    
+
     var tile: Tile?
-    
+
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
+        webView.navigationDelegate = self
+
         layer.borderWidth = 2
         layer.borderColor = Asset.borderViews.color.cgColor
     }
@@ -42,7 +44,7 @@ class TileCollectionViewCell: UICollectionViewCell, Reusable {
 // MARK: - Private Methods
 private extension TileCollectionViewCell {
     func loadPreview(previewURL: String) {
-        // Load storaged cookies in WKWebView
+        // Load storage cookies in WKWebView
         loadPreviousCookies()
         
         guard let fragmentedURL = previewURL.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
@@ -51,8 +53,6 @@ private extension TileCollectionViewCell {
         }
         
         let request = URLRequest(url: url)
-        
-        loadCredentials(host: url.host)
         
         webView.load(request)
     }
@@ -64,26 +64,40 @@ private extension TileCollectionViewCell {
         }
     }
     
-     func loadCredentials(host: String?) {
-        let credentials = Keychain.shared.getUserCredentials()
-        guard let user = credentials?.user,
-              let userPassword = credentials?.password,
-              let server = host else {
-            return
+}
+
+// MARK: - WKNavigationDelegate
+extension TileCollectionViewCell: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+            guard let serverTrust = challenge.protectionSpace.serverTrust else {
+                completionHandler(.cancelAuthenticationChallenge, nil)
+                return
+            }
+
+            completionHandler(.useCredential, URLCredential(trust: serverTrust))
+
+        } else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM ||
+                    challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic ||
+                    challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNegotiate {
+
+            let credentials = Keychain.shared.getUserCredentials()
+            guard let user = credentials?.user,
+                  let userPassword = credentials?.password else {
+                completionHandler(.cancelAuthenticationChallenge, nil)
+                return
+            }
+
+            let userLogin = "TERNIUM\\\(user)"
+
+            let credential = URLCredential(user: userLogin,
+                                           password: userPassword,
+                                           persistence: .forSession)
+
+            completionHandler(.useCredential, credential)
+        } else {
+            completionHandler(.performDefaultHandling, nil)
         }
-
-        let userLogin = "TERNIUM\\\(user)"
-
-        let credential = URLCredential(user: userLogin,
-                                       password: userPassword,
-                                       persistence: .forSession)
-        
-        let protectionSpace = URLProtectionSpace(host: server,
-                                                 port: 80,
-                                                 protocol: "http",
-                                                 realm: host,
-                                                 authenticationMethod: NSURLAuthenticationMethodDefault)
-        
-        URLCredentialStorage.shared.set(credential, for: protectionSpace)
     }
 }
