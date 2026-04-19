@@ -27,17 +27,32 @@ class TileCollectionViewCell: UICollectionViewCell, Reusable {
         layer.borderColor = Asset.borderViews.color.cgColor
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        webView.stopLoading()
+        webView.isHidden = false
+        iconImageView.image = nil
+        iconImageView.isHidden = true
+        titleLabel.text = nil
+        backgroundColor = nil
+    }
+
     // MARK: - Public Methods
     func configureCell(tileOperation: Tile) {
         tile = tileOperation
-        
-        if let previewURL = tileOperation.previewString, !previewURL.isEmpty {
-            loadPreview(previewURL: previewURL)
+
+        if SessionManager.shared.isTileActiveInProfile(activityId: tileOperation.activityId ?? "") {
+            print("Found tile")
+            if let previewURL = tileOperation.previewString, !previewURL.isEmpty {
+                loadPreview(previewURL: previewURL)
+            } else {
+                webView.isHidden = true
+            }
+            
+            titleLabel.text = tile?.title
         } else {
-            webView.isHidden = true
+            setLockedState()
         }
-        
-        titleLabel.text = tile?.title
     }
 }
 
@@ -62,6 +77,18 @@ private extension TileCollectionViewCell {
         for cookie in cookies {
             webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
         }
+    }
+    
+    func setLockedState() {
+        backgroundColor = .white
+        titleLabel.text = tile?.title
+        titleLabel.font = .systemFont(ofSize: 18)
+        titleLabel.textColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1)
+
+        webView.isHidden = true
+        iconImageView.image = Asset.activityLocked.image
+        iconImageView.contentMode = .scaleAspectFit
+        iconImageView.isHidden = false
     }
     
 }

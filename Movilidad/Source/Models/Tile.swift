@@ -30,11 +30,13 @@ class Tile: XMLMappable {
     var title: String?
     var previewString: String?
     var navigationString: String?
+    var activityId: String?
     
     enum Keys: String {
         case title
         case previewString
         case navigationString
+        case activityId
     }
     
     required init?(map: XMLMap) {}
@@ -43,5 +45,6 @@ class Tile: XMLMappable {
         title <- map.attributes[Keys.title.rawValue]
         previewString <- map.attributes[Keys.previewString.rawValue]
         navigationString <- map.attributes[Keys.navigationString.rawValue]
+        activityId <- map.attributes[Keys.activityId.rawValue]
     }
 }
