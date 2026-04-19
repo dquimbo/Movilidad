@@ -15,6 +15,7 @@ class SettingsHandler {
     var initialProfileSelectedGuid: String = ""
     var initialOperationSelectedGuid: String = ""
     var initInMetroDesktop: Bool = false
+    var metroDesktopSelectedGuid: String = ""
     var transactionRedirectSelected: String = ""
     
     let deviceName = UIDevice.current.userInterfaceIdiom == .pad ? "Desktop-iPad" : "Desktop-iPhone"
@@ -54,6 +55,10 @@ class SettingsHandler {
             
             if let initInMetroDesktopSaved = settings?.initInMetroDesktop {
                 initInMetroDesktop = initInMetroDesktopSaved
+            }
+
+            if let metroDesktopGuidSaved = settings?.metroDesktopSelectedGuid {
+                metroDesktopSelectedGuid = metroDesktopGuidSaved
             }
             
             if let transactionRedirect = settings?.transactionRedirect {
@@ -119,6 +124,16 @@ class SettingsHandler {
         return SessionManager.shared.getAllOperations()?.first(where: { $0.id == self.initialOperationSelectedGuid})
     }
     
+    func saveMetroDesktopSelected(metroDesktopItemID: String) {
+        metroDesktopSelectedGuid = metroDesktopItemID
+
+        RealmStorageManager.saveMetroDesktopSelected(metroDesktopItemID: metroDesktopItemID)
+    }
+
+    func getMetroDesktopSelected() -> OperationItem? {
+        return SessionManager.shared.getAllTileOperations()?.first(where: { $0.id == self.metroDesktopSelectedGuid })
+    }
+
     func saveInitInMetroDesktop(initInMetroDesktop: Bool) {
         self.initInMetroDesktop = initInMetroDesktop
         

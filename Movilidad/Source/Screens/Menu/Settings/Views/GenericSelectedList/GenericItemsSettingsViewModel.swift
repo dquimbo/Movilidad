@@ -72,7 +72,9 @@ class GenericItemsSettingsViewModel {
             
             return item.getID() == initialOperationGuid
         case .metroDesktopSelected:
-            return false
+            let metroDesktopGuid = SettingsHandler.shared.metroDesktopSelectedGuid
+
+            return item.getID() == metroDesktopGuid
         case .redirectTransactionSelected:
             let transactionRedirectSelected = SettingsHandler.shared.transactionRedirectSelected
             
@@ -94,7 +96,7 @@ class GenericItemsSettingsViewModel {
         case .initialOperationSelected:
             SettingsHandler.shared.saveInitialOperation(operationItemID: item.getID())
         case .metroDesktopSelected:
-            break
+            SettingsHandler.shared.saveMetroDesktopSelected(metroDesktopItemID: item.getID())
         case .redirectTransactionSelected:
             if item.getID() == L10n.Settings.none {
                 SettingsHandler.shared.saveTransactionRedirect(transactionRedirect: "")

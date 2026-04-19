@@ -108,7 +108,7 @@ private extension MenuSettingsViewController {
         buildLabel.text = vM.build
         initialProfileLabel.text = vM.initialProfile
         initialOperationLabel.text = vM.initialOperation
-        metroDesktopLabel.text = ""
+        metroDesktopLabel.text = vM.metroDesktopSelected
         
         transactionsRedirectView.isHidden = !vM.showTransactionRedirect
         transactionRedirectLabel.text = vM.transactionRedirectSelected

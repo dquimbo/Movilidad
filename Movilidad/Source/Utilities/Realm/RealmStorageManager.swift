@@ -121,6 +121,23 @@ final class RealmStorageManager {
         }
     }
     
+    /// save the metro desktop selected guid to local db
+    class func saveMetroDesktopSelected(metroDesktopItemID: String) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                guard let settingsData = realm.objects(RealmSettingModel.self).filter("id == %@", "1").first else {
+                    print("Setting data was not saved in Realm database")
+                    return
+                }
+
+                settingsData.metroDesktopSelectedGuid = metroDesktopItemID
+            }
+        } catch {
+            print("Setting data was not saved in Realm database (Crash)")
+        }
+    }
+
     /// save the initInMetroDesktop to local db
     class func saveInitInMetroDesktop(initInMetroDesktop: Bool) {
         do {
