@@ -94,8 +94,9 @@ final class RealmStorageManager {
                 }
                 
                 settingsData.initialProfileSelectedGuid = profileItemID
-                // Remove inital operation
+                // Remove initial operation and metro desktop
                 settingsData.initialOperationSelectedGuid = ""
+                settingsData.metroDesktopSelectedGuid = ""
             }
         } catch {
             print("Setting data was not saved in Realm database (Crash)")

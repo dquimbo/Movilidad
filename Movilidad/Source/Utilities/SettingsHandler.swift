@@ -104,8 +104,9 @@ class SettingsHandler {
     // Public Functions
     func saveInitialProfile(profileItemID: String) {
         initialProfileSelectedGuid = profileItemID
-        // Remove inital operation
+        // Remove initial operation and metro desktop
         initialOperationSelectedGuid = ""
+        metroDesktopSelectedGuid = ""
         
         RealmStorageManager.saveInitialProfile(profileItemID: profileItemID)
     }

@@ -5,7 +5,7 @@
 //  Created by Diego Quimbo on 16/6/23.
 //
 
-import Foundation
+import UIKit
 
 protocol MetroStartViewDelegate: AnyObject {
     func tileItemHasSelected(operation: OperationWeb)
@@ -46,6 +46,25 @@ class MetroStartView: NibLoadingView {
         let metroSearchView = MetroSearchView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         
         addSubview(metroSearchView)
+    }
+}
+
+// MARK: - Internal Methods
+extension MetroStartView {
+    func showMetroDesktopSelected() {
+        let guid = SettingsHandler.shared.metroDesktopSelectedGuid
+        guard !guid.isEmpty else {
+            print("Enter to showMetroDesktopSelected, but no guid found")
+            return 
+        }
+
+        let metroDesktopView = MetroDesktopView(guid: guid, frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), delegate: self)
+        metroDesktopView.alpha = 0
+        addSubview(metroDesktopView)
+
+        UIView.animate(withDuration: 0.3) {
+            metroDesktopView.alpha = 1
+        }
     }
 }
 

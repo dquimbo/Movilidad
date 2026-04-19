@@ -301,6 +301,10 @@ private extension HomeViewController {
         if SettingsHandler.shared.initInMetroDesktop {
             metroStartView.delegate = self
             infiniteScrollView.insertView(newView: metroStartView)
+
+            DispatchQueue.main.async { [weak self] in
+                self?.metroStartView.showMetroDesktopSelected()
+            }
         }
     }
 }
