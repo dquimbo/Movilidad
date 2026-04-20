@@ -40,7 +40,9 @@ class GenericItemsSettingsViewModel {
             
             return operations
         case .metroDesktopSelected:
-            return SessionManager.shared.getAllTileOperations() ?? []
+            let allTiles = SessionManager.shared.getAllTileOperations() ?? []
+            var seen = Set<String>()
+            return allTiles.filter { seen.insert($0.getID()).inserted }
         case .redirectTransactionSelected:
             var transactionsRedirect = [TransactionRedirectSelectable(value: L10n.Settings.none)]
             transactionsRedirect.append(contentsOf: SessionManager.shared.profile?.transactionRedirectSelectableValues ?? [])

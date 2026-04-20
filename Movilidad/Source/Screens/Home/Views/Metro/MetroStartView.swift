@@ -30,9 +30,9 @@ class MetroStartView: NibLoadingView {
     
     // MARK: - IBActions
     @IBAction func desktopPressed(_ sender: Any) {
-        guard let tilesOperations = SessionManager.shared.getAllTileOperations(),
-        !tilesOperations.isEmpty,
-        let guid = tilesOperations[0].id else {
+        let guid = SettingsHandler.shared.metroDesktopSelectedGuid
+        
+        guard !guid.isEmpty else {
             showAlert(title: L10n.General.Error.title, message: L10n.Metro.Desktop.Empty.tiles)
             return
         }
@@ -43,8 +43,8 @@ class MetroStartView: NibLoadingView {
     }
     
     @IBAction func searchPressed(_ sender: Any) {
-        let metroSearchView = MetroSearchView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
-        
+        let metroSearchView = MetroSearchView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), delegate: self)
+
         addSubview(metroSearchView)
     }
 }
@@ -72,5 +72,13 @@ extension MetroStartView {
 extension MetroStartView: MetroDesktopViewDelegate {
     func tileItemHasSelected(operation: OperationWeb) {
         delegate?.tileItemHasSelected(operation: operation)
+    }
+}
+
+// MARK: - MetroSearchViewDelegate
+extension MetroStartView: MetroSearchViewDelegate {
+    func tileSearchHasSelected(guid: String) {
+        let metroDesktopView = MetroDesktopView(guid: guid, frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), delegate: self)
+        addSubview(metroDesktopView)
     }
 }

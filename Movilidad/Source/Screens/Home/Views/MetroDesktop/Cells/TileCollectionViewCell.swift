@@ -42,7 +42,6 @@ class TileCollectionViewCell: UICollectionViewCell, Reusable {
         tile = tileOperation
 
         if SessionManager.shared.isTileActiveInProfile(activityId: tileOperation.activityId ?? "") {
-            print("Found tile")
             if let previewURL = tileOperation.previewString, !previewURL.isEmpty {
                 loadPreview(previewURL: previewURL)
             } else {

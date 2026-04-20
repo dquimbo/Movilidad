@@ -22,6 +22,7 @@
 		800663C3279045F8007A6A3F /* LocalizableXib+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800663C2279045F8007A6A3F /* LocalizableXib+Extension.swift */; };
 		800663C627906873007A6A3F /* NibLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800663C527906873007A6A3F /* NibLoadingView.swift */; };
 		800663CD279075FF007A6A3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800663CC279075FF007A6A3F /* UIView+Extension.swift */; };
+		800679132F96296300957C1B /* MetroSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800679122F96295B00957C1B /* MetroSearchViewModel.swift */; };
 		8009AB9929FA96BD00D00174 /* InteropAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009AB9829FA96BD00D00174 /* InteropAction.swift */; };
 		800FB70927DF590C00C89253 /* FavoriteAppCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FB70827DF590C00C89253 /* FavoriteAppCellViewModel.swift */; };
 		800FB70B27DF592800C89253 /* FavoriteAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FB70A27DF592800C89253 /* FavoriteAppCell.swift */; };
@@ -295,6 +296,7 @@
 		800663C2279045F8007A6A3F /* LocalizableXib+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizableXib+Extension.swift"; sourceTree = "<group>"; };
 		800663C527906873007A6A3F /* NibLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadingView.swift; sourceTree = "<group>"; };
 		800663CC279075FF007A6A3F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		800679122F96295B00957C1B /* MetroSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetroSearchViewModel.swift; sourceTree = "<group>"; };
 		8009AB9829FA96BD00D00174 /* InteropAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteropAction.swift; sourceTree = "<group>"; };
 		800FB70827DF590C00C89253 /* FavoriteAppCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAppCellViewModel.swift; sourceTree = "<group>"; };
 		800FB70A27DF592800C89253 /* FavoriteAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAppCell.swift; sourceTree = "<group>"; };
@@ -851,6 +853,7 @@
 		806378462AC70FF900959E48 /* MetroSearch */ = {
 			isa = PBXGroup;
 			children = (
+				800679122F96295B00957C1B /* MetroSearchViewModel.swift */,
 				806378472AC7101600959E48 /* MetroSearchView.swift */,
 				806378492AC7102500959E48 /* MetroSearchView.xib */,
 			);
@@ -2090,6 +2093,7 @@
 				80C1A42D27A16C4800869922 /* ConnectionManager_Profile.swift in Sources */,
 				800663C0278DB468007A6A3F /* Assets.swift in Sources */,
 				80A92BB127AC0FBF004B9C1B /* MenuWorkflowViewController.swift in Sources */,
+				800679132F96296300957C1B /* MetroSearchViewModel.swift in Sources */,
 				804E227527C8EEC300233AD2 /* ConnectionManager_Operation.swift in Sources */,
 				80F4805B2795FEB5003F5083 /* Utilities.swift in Sources */,
 				80C1A48127A95EFC00869922 /* TransactionTableDataSource.swift in Sources */,
