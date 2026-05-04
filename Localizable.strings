@@ -119,3 +119,4 @@
 "metro.desktop.loading.tiles" = "Cargando Tiles";
 "metro.desktop.search.workspaces" = "Workspaces";
 "metro.desktop.empty.tiles" = "No existen Tiles disponibles";
+"metro.desktop.unselected.tile" = "Es necesario seleccionar un Desktop de inicio en configuraciones";

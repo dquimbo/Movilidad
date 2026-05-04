@@ -33,7 +33,7 @@ class MetroStartView: NibLoadingView {
         let guid = SettingsHandler.shared.metroDesktopSelectedGuid
         
         guard !guid.isEmpty else {
-            showAlert(title: L10n.General.Error.title, message: L10n.Metro.Desktop.Empty.tiles)
+            showAlert(title: L10n.General.Error.title, message: L10n.Metro.Desktop.Unselected.tile)
             return
         }
         
