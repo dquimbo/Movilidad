@@ -73,7 +73,11 @@ extension MetroDesktopView: UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let navigationURL = vM.tiles[indexPath.row].navigationString else { return }
         
-        let operationURL = "\(URLs.baseURL())\(navigationURL)"
+        guard SessionManager.shared.isTileActiveInProfile(activityId: vM.tiles[indexPath.row].activityId ?? "") else {
+            return
+        } 
+        
+        let operationURL = "\(navigationURL)"
         
         let operationWeb = OperationWeb(externalURL: operationURL)
         
