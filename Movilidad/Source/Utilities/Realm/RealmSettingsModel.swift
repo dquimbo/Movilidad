@@ -15,6 +15,7 @@ class RealmSettingModel: Object {
     @objc dynamic var initialProfileSelectedGuid = ""
     @objc dynamic var initialOperationSelectedGuid: String = ""
     @objc dynamic var initInMetroDesktop: Bool = false
+    @objc dynamic var metroDesktopSelectedGuid: String = ""
     @objc dynamic var transactionRedirect: String = ""
     let servers = List<String>()
 

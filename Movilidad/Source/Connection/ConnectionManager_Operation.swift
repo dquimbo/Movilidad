@@ -67,11 +67,12 @@ class ConnectionManager_Operation: ConnectionManager {
     func getTiles(guid: String) -> Single<TileControls?> {
         return Single.create { [weak self] single in
             let request = self?.session.request(URLs.Operation.getTiles(guid: guid), method: .get, parameters: nil, encoding: URLEncoding.queryString, headers: ConnectionManager.headers)
-                .responseString(completionHandler: { response in
+                .responseString(encoding: .utf8, completionHandler: { response in
                     switch response.result {
                     case .success(let data):
+                        print("getTiles response: \(data)")
                         let tilesControl =  TileControls(XMLString: data)
-                        
+
                         single(.success(tilesControl))
                     case .failure(_):
                         single(.failure(ApiError.internalServerError))

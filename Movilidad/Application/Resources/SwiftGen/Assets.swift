@@ -34,6 +34,7 @@ internal enum Asset {
   internal static let textField = ColorAsset(name: "textField")
   internal static let microphoneOrange = ImageAsset(name: "microphone_orange")
   internal static let microphoneRed = ImageAsset(name: "microphone_red")
+  internal static let activityLocked = ImageAsset(name: "activity_locked")
   internal static let arrowLeft = ImageAsset(name: "arrow_left")
   internal static let arrowRight = ImageAsset(name: "arrow_right")
   internal static let backgroundToolbar = ImageAsset(name: "background_toolbar")

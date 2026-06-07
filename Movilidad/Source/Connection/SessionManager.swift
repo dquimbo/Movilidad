@@ -67,6 +67,20 @@ class SessionManager {
         
         return allOperationItems.filter({ $0.type == ItemType.O.rawValue && $0.operationType == OperationType.Tile.rawValue })
     }
+    
+    func getActivitiesOperations() -> [OperationItem]? {
+        guard let allOperationItems = menu?.getALLOperationItemsInNullableSections() else {
+            return nil
+        }
+        
+        return allOperationItems.filter({ $0.operationType == OperationType.Activities.rawValue })
+    }
+    
+    func isTileActiveInProfile(activityId: String) -> Bool {
+        let activities = SessionManager.shared.getActivitiesOperations()
+        
+        return activities?.first(where: {$0.id == activityId}) != nil
+    }
 }
 
 private extension SessionManager {

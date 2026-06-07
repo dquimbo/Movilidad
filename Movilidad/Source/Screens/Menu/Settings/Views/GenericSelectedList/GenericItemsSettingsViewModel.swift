@@ -40,7 +40,9 @@ class GenericItemsSettingsViewModel {
             
             return operations
         case .metroDesktopSelected:
-            return SessionManager.shared.getAllTileOperations() ?? []
+            let allTiles = SessionManager.shared.getAllTileOperations() ?? []
+            var seen = Set<String>()
+            return allTiles.filter { seen.insert($0.getID()).inserted }
         case .redirectTransactionSelected:
             var transactionsRedirect = [TransactionRedirectSelectable(value: L10n.Settings.none)]
             transactionsRedirect.append(contentsOf: SessionManager.shared.profile?.transactionRedirectSelectableValues ?? [])
@@ -72,7 +74,9 @@ class GenericItemsSettingsViewModel {
             
             return item.getID() == initialOperationGuid
         case .metroDesktopSelected:
-            return false
+            let metroDesktopGuid = SettingsHandler.shared.metroDesktopSelectedGuid
+
+            return item.getID() == metroDesktopGuid
         case .redirectTransactionSelected:
             let transactionRedirectSelected = SettingsHandler.shared.transactionRedirectSelected
             
@@ -94,7 +98,7 @@ class GenericItemsSettingsViewModel {
         case .initialOperationSelected:
             SettingsHandler.shared.saveInitialOperation(operationItemID: item.getID())
         case .metroDesktopSelected:
-            break
+            SettingsHandler.shared.saveMetroDesktopSelected(metroDesktopItemID: item.getID())
         case .redirectTransactionSelected:
             if item.getID() == L10n.Settings.none {
                 SettingsHandler.shared.saveTransactionRedirect(transactionRedirect: "")

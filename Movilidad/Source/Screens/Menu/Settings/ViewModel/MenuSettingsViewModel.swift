@@ -51,6 +51,10 @@ final class MenuSettingsViewModel {
         return SettingsHandler.shared.getInitialOperation()?.name ?? ""
     }
     
+    var metroDesktopSelected: String {
+        return SettingsHandler.shared.getMetroDesktopSelected()?.name ?? ""
+    }
+
     var initInMetroDesktop: Bool {
         return SettingsHandler.shared.initInMetroDesktop
     }
