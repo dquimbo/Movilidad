@@ -70,7 +70,6 @@ class ConnectionManager_Operation: ConnectionManager {
                 .responseString(encoding: .utf8, completionHandler: { response in
                     switch response.result {
                     case .success(let data):
-                        print("getTiles response: \(data)")
                         let tilesControl =  TileControls(XMLString: data)
 
                         single(.success(tilesControl))

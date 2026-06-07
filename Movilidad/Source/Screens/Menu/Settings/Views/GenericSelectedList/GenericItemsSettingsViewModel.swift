@@ -36,7 +36,7 @@ class GenericItemsSettingsViewModel {
             return profiles
         case .initialOperationSelected:
             var operations = [OperationItem(id: "-1", name: L10n.Settings.none)]
-            operations.append(contentsOf: SessionManager.shared.getAllOperations() ?? [])
+            operations.append(contentsOf: SessionManager.shared.getAllOperationsByPerfilStart() ?? [])
             
             return operations
         case .metroDesktopSelected:

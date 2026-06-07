@@ -60,6 +60,14 @@ class SessionManager {
         return menu?.getAllMenuItems()
     }
     
+    func getAllOperationsByPerfilStart() -> [OperationItem]? {
+        guard let allOperations = menu?.getAllMenuItems() else {
+            return nil
+        }
+        
+        return allOperations.filter({$0.operationType != OperationType.Tile.rawValue})
+    }
+    
     func getAllTileOperations() -> [OperationItem]? {
         guard let allOperationItems = menu?.getALLOperationItemsInNullableSections() else {
             return nil
