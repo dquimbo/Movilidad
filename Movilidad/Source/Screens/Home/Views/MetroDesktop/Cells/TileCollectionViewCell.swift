@@ -17,11 +17,20 @@ class TileCollectionViewCell: UICollectionViewCell, Reusable {
 
     var tile: Tile?
 
+    private lazy var loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .gray)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
 
         webView.navigationDelegate = self
+
+        setupLoadingIndicator()
 
         layer.borderWidth = 2
         layer.borderColor = Asset.borderViews.color.cgColor
@@ -35,6 +44,7 @@ class TileCollectionViewCell: UICollectionViewCell, Reusable {
         iconImageView.isHidden = true
         titleLabel.text = nil
         backgroundColor = nil
+        loadingIndicator.stopAnimating()
     }
 
     // MARK: - Public Methods
@@ -57,17 +67,26 @@ class TileCollectionViewCell: UICollectionViewCell, Reusable {
 
 // MARK: - Private Methods
 private extension TileCollectionViewCell {
+    func setupLoadingIndicator() {
+        contentView.addSubview(loadingIndicator)
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+    }
+
     func loadPreview(previewURL: String) {
         // Load storage cookies in WKWebView
         loadPreviousCookies()
-        
+
         guard let fragmentedURL = previewURL.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
               let url = URL(string: fragmentedURL) else {
             return
         }
-        
+
         let request = URLRequest(url: url)
-        
+
+        loadingIndicator.startAnimating()
         webView.load(request)
     }
     
@@ -94,6 +113,18 @@ private extension TileCollectionViewCell {
 
 // MARK: - WKNavigationDelegate
 extension TileCollectionViewCell: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loadingIndicator.stopAnimating()
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        loadingIndicator.stopAnimating()
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        loadingIndicator.stopAnimating()
+    }
+
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
 
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
