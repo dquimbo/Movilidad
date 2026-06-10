@@ -120,3 +120,4 @@
 "metro.desktop.search.workspaces" = "Workspaces";
 "metro.desktop.empty.tiles" = "No existen Tiles disponibles";
 "metro.desktop.unselected.tile" = "Es necesario seleccionar un Desktop de inicio en configuraciones";
+"metro.desktop.unavailable.tile" = "Esta operación no está disponible.";

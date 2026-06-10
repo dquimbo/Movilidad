@@ -77,12 +77,18 @@ extension MetroDesktopView: UICollectionViewDataSource, UICollectionViewDelegate
         case .external(let externalURL):
             UIApplication.shared.open(externalURL)
         case .none:
-            break
+            showUnavailableTilePopup()
         }
     }
 }
 
 private extension MetroDesktopView {
+    func showUnavailableTilePopup() {
+        let popup = ErrorPopupView(title: L10n.General.Error.title,
+                                   message: L10n.Metro.Desktop.Unavailable.tile)
+        popup.present(over: self)
+    }
+
     func loadTiles() {
         showProgressHud(view: self, text: L10n.Metro.Desktop.Loading.tiles)
         

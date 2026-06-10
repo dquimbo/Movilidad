@@ -188,6 +188,10 @@ internal enum L10n {
         /// Workspaces
         internal static let workspaces = L10n.tr("Localizable", "metro.desktop.search.workspaces", fallback: "Workspaces")
       }
+      internal enum Unavailable {
+        /// Esta operación no está disponible.
+        internal static let tile = L10n.tr("Localizable", "metro.desktop.unavailable.tile", fallback: "Esta operación no está disponible.")
+      }
       internal enum Unselected {
         /// Es necesario seleccionar un Desktop de inicio en configuraciones
         internal static let tile = L10n.tr("Localizable", "metro.desktop.unselected.tile", fallback: "Es necesario seleccionar un Desktop de inicio en configuraciones")
