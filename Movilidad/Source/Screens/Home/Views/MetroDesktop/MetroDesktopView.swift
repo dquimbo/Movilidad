@@ -71,17 +71,14 @@ extension MetroDesktopView: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let navigationURL = vM.tiles[indexPath.row].navigationString else { return }
-        
-        guard SessionManager.shared.isTileActiveInProfile(activityId: vM.tiles[indexPath.row].activityId ?? "") else {
-            return
-        } 
-        
-        let operationURL = "\(navigationURL)"
-        
-        let operationWeb = OperationWeb(externalURL: operationURL)
-        
-        delegate?.tileItemHasSelected(operation: operationWeb)
+        switch vM.navigation(forTileAt: indexPath.row) {
+        case .web(let operationWeb):
+            delegate?.tileItemHasSelected(operation: operationWeb)
+        case .external(let externalURL):
+            UIApplication.shared.open(externalURL)
+        case .none:
+            break
+        }
     }
 }
 
